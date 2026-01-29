@@ -46,15 +46,6 @@ The API will be available at `http://localhost:8080`
 - Models: Data structures and DTOs
 - Helpers: Utility functions
 
-### Concurrency
-- Go routines with channels for parallel carrier API calls
-- 5-second timeout to prevent request hanging
-- Error isolation to prevent carrier failures from affecting others
-
-### Carrier Simulation
-- Simulated APIs for BlueDart, Delhivery, and XpressBees
-- Random scenarios: API failures (10%), slow responses (20%), unserviceable locations (15%)
-
 ### Database Design
 - Orders and Tracking Events tables with auto-migration
 - Indexes on frequently queried fields (order_id, tracking_id)
@@ -63,16 +54,6 @@ The API will be available at `http://localhost:8080`
 - Graceful fallback to in-memory storage during database outages
 - Request validation at controller level
 - Continues processing on external API failures
-
-## Trade-offs
-
-| Aspect | Choice | Reason |
-|--------|--------|--------|
-| Carrier Integration | Simulated APIs | Focus on core logic without external dependencies |
-| Data Persistence | In-memory fallback | Service availability during database outages |
-| Validation | Basic field validation | Core requirements focus |
-| Tracking Updates | Polling API | Simpler implementation |
-| Database | MySQL with GORM | ACID compliance and structured data |
 
 ## What I'd Improve with More Time
 
